@@ -238,7 +238,7 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   puma (~> 3.11)
   rails (~> 5.2.2)
-  sass-rails (~> 5.0)
+  sass-rails
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
