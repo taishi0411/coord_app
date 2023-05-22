@@ -9,27 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+    <%= render 'shared/header'%>
 
-      <div class="header-nav">
-        <% if user_signed_in? %>
-        <div class="app_logo">
-          <%= link_to "/" do %>
-            <%= image_tag 'app_logo.png', class: 'logo' %>
-          <% end %>
-        </div>
-          <%= link_to 'アイテム登録', "#" %>
-          <%= link_to 'クローゼット', "#" %>
-          <%= link_to 'ログアウト', destroy_user_session_path , method: :delete %>
-        <% else %>
-          <%= link_to 'ログイン', new_user_session_path %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-        <% end %>
-      </div>
-    </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
     <%= yield %>
+
+    <%= render 'shared/footer'%>
   </body>
 </html>
