@@ -6,5 +6,11 @@
 <p>Millerは、自動でオシャレなコーデを組んでくれるサービスです。</p>
 
 <div class="sign_up_button">
-  <%= link_to 'さっそくはじめる', new_user_registration_path %>
+  <%= link_to new_user_registration_path do %>
+    <p>さっそくはじめる</p>
+  <% end %>
+</div>
+
+<div class="arrow_logo">
+  <%= image_tag 'under_arrow.png'%>
 </div>
