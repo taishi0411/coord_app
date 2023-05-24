@@ -11,8 +11,11 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <%= render 'shared/header'%>
-
+    <% if user_signed_in? %>
+      <%= render 'shared/header'%>
+    <% else %>
+    <% end %>
+    
     <%= yield %>
 
     <%= render 'shared/footer'%>

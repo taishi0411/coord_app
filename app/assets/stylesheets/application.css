@@ -14,8 +14,15 @@
  *= require_self
  */
 
-header{
- 
+.header-nav{
+ display: flex;
+ justify-content:space-between;
+ background-color: #FFE000;
+ height: 75px;
+}
+
+.header-nav .nav{
+  padding-top: 22px;
 }
 
 header a{
@@ -23,4 +30,10 @@ header a{
   color: #2b2b2b;
   font-weight: bold;
   
+}
+
+header .app_logo img{
+  display: inline-block;
+    width: 150px;
+    padding: 18px 0 0 35px;
 }
