@@ -64,4 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem'sass-rails'
 gem 'devise-i18n'
-
+gem 'google-cloud-vision'
+gem 'dotenv-rails'
