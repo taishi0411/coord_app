@@ -7,6 +7,9 @@ WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 
+COPY coordapp-387901-6562364605d9.json  coordapp-387901-6562364605d9.json
+ENV GOOGLE_APPLICATION_CREDENTIALS coordapp-387901-6562364605d9.json
+
 RUN gem install bundler:2.2.3
 RUN bundle install
 COPY . /myapp
