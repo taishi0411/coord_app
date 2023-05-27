@@ -4,7 +4,7 @@ require 'json'
 require 'net/http'
 
 IMAGE_FILE = ARGV[0]
-API_KEY = ENV['GOOGLE_VISION_API_KEY']
+API_KEY = ENV['GOOGLE_CLOUD_KEY']
 API_URL = "https://vision.googleapis.com/v1/images:annotate?key=#{API_KEY}"
 
 base64_image = Base64.strict_encode64(File.new(IMAGE_FILE, 'rb').read)
