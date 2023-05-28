@@ -34,5 +34,11 @@ response_rb = JSON.parse(response.body)
 
 
 # データの必要なもののみ抽出
-
-puts response_rb 
+if response_rb['responses'][0]['imagePropertiesAnnotation']
+  colors = response_rb['responses'][0]['imagePropertiesAnnotation']['dominantColors']['colors']
+  colors.each do |color|
+    puts "Color: #{color['color']['red']}, #{color['color']['green']}, #{color['color']['blue']}"
+  end
+else
+  puts '色情報がありません'
+end
