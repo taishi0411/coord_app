@@ -10,7 +10,9 @@
         <div class="nav">
           <%= link_to 'アイテム登録', "#" %>
           <%= link_to 'クローゼット', "#" %>
-           <%= link_to 'マイページ', user_path(current_user) %>
+           <%= link_to user_path(current_user) do %>
+            <%= current_user.name %>
+           <% end %>
           <%= link_to 'ログアウト', destroy_user_session_path , method: :delete %>
         <% else %>
           <%= link_to 'ログイン', new_user_session_path %>
