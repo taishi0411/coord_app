@@ -28,3 +28,6 @@
 
 /db/mysql/volumes
 
+/.env
+
+/coordapp-387901-6562364605d9.json
