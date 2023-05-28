@@ -32,13 +32,37 @@ response = https.request(request, body)
 
 response_rb = JSON.parse(response.body)
 
+#色の差分を計算するメソッド
+def colordifference(red,green,blue) 
+  value1 = red
+value2 = green
+value3 = blue
+
+# 最大値と最小値を見つける
+min_value = [value1, value2, value3].min
+max_value = [value1, value2, value3].max
+
+# 最小値と最大値の差を変数に格納
+difference = max_value - min_value
+
+# 変数を出力
+puts "差: #{difference}"
+end
+
+
 
 # データの必要なもののみ抽出
 if response_rb['responses'][0]['imagePropertiesAnnotation']
   colors = response_rb['responses'][0]['imagePropertiesAnnotation']['dominantColors']['colors']
   colors.each do |color|
     puts "Color: #{color['color']['red']}, #{color['color']['green']}, #{color['color']['blue']}"
+
+    # 色の差分を計算
+    colordifference(color['color']['red'],color['color']['green'],color['color']['blue'])
+
   end
 else
   puts '色情報がありません'
 end
+
+
