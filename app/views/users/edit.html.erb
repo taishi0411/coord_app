@@ -1,0 +1,18 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+
+        <%= form_for @user do |f| %>
+
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+
+    <%= f.label :email%>
+    <%= f.text_field :email%>
+
+    <%= f.label :home_adress%>
+    <%= f.text_field :home_adress%>
+
+    <%= f.submit "更新" %>
+
+<% end %>

@@ -2,7 +2,7 @@
       <div class="header-nav">
         <% if user_signed_in? %>
         <div class="app_logo">
-          <%= link_to "/" do %>
+          <%= link_to users_index_path do %>
             <%= image_tag 'app_logo.png', class: 'logo' %>
           <% end %>
         </div>
@@ -10,6 +10,7 @@
         <div class="nav">
           <%= link_to 'アイテム登録', "#" %>
           <%= link_to 'クローゼット', "#" %>
+           <%= link_to 'マイページ', user_path(current_user) %>
           <%= link_to 'ログアウト', destroy_user_session_path , method: :delete %>
         <% else %>
           <%= link_to 'ログイン', new_user_session_path %>
