@@ -32,7 +32,7 @@ response = https.request(request, body)
 
 response_rb = JSON.parse(response.body)
 
-#色の差分を計算するメソッド
+#色の差分を計算
 def colordifference(red,green,blue) 
   value1 = red
 value2 = green

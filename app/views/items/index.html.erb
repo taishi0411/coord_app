@@ -3,4 +3,8 @@
 
 <% @items.each do |item| %>
   <%= item.name %>
+
+  <% if item.image.attached? %>
+    <%= image_tag item.image %>
+<% end %>
 <% end %>
