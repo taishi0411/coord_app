@@ -42,6 +42,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if  @item.update(item_params)
+      analyze_image(@item)
       redirect_to item_path(@item), notice: "更新に成功しました。"
    else
     render :edit

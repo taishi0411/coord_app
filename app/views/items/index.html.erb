@@ -3,8 +3,12 @@
 
 <% @items.each do |item| %>
   <%= item.name %>
+  <%= item.color_difference %>
 
+<%= link_to item_path(item) do %>
   <% if item.image.attached? %>
     <%= image_tag item.image %>
+  <% end %>
 <% end %>
+
 <% end %>
