@@ -1,0 +1,15 @@
+<%= form_with(model: @item, local: true, url: items_path) do |f| %>
+            <div class="new-form">
+                <%= f.label :アイテム名%>
+                <%= f.text_field :name%>
+            </div>
+
+           
+
+            <div class="new-form ">
+                <%= f.submit "投稿" %>
+            </div>
+
+           
+               
+        <% end %>

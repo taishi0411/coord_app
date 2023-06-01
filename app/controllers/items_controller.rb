@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = current_user.items.find(params[:id])
+  @item = Item.find(params[:id])
   end
 
   def new
@@ -13,11 +13,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-  
-    if @item.save
-      redirect_to user_item_path(@item), notice: "アイテムが作成されました。"
+    @item.user_id = current_user.id
+    @item.genre_id = 4
+    if @item.save!
+      redirect_to item_path(@item), notice: "アイテムが作成されました。"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -48,6 +49,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:clean_index, :heat_index, :rgb, :color_difference)
+    params.require(:item).permit(:name)
   end
 end
