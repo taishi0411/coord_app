@@ -20,7 +20,7 @@
   </div>
 
     <div class="field">
-      <%= f.text_field :home_adress, autofocus: true, autocomplete: "home_adress", :placeholder => "居住地"%>
+      <%= f.select :home_adress,[["北海道", "hokkaido"], ["青森", "aomori"], ["岩手", ""], ["宮城", "医学部"]], include_blank: "居住地" , autofocus: true, autocomplete: "home_adress"%>
     </div>
 
   <div class="actions">

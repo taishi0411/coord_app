@@ -1,1 +1,8 @@
 show
+
+<%= @item.name %>
+<%= @item.genre_id %>
+
+<% if @item.image.attached? %>
+    <%= image_tag @item.image %>
+<% end %>

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = current_user.items
+    @items = Item.where(user_id: current_user.id)
   end
 
   def show
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.genre_id = 4
+    @item.genre_id = 2
     if @item.save!
       redirect_to item_path(@item), notice: "アイテムが作成されました。"
     else
@@ -23,18 +23,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @item = Item.find(params[:id])
 
-    if @post.user != current_user
+    if @item.user != current_user
       redirect_to posts_path, alert: "不正なアクセスです。"
     end
   end
 
   def update
-    @item = current_user.items.find(params[:id])
-
+    @item = Item.find(params[:id])
     if  @item.update(item_params)
-      redirect_to user_item_path(@item), notice: "更新に成功しました。"
+      redirect_to item_path(@item), notice: "更新に成功しました。"
    else
     render :edit
    end
@@ -49,6 +48,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :image)
   end
 end
