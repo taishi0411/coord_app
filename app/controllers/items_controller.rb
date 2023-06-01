@@ -61,7 +61,6 @@ class ItemsController < ApplicationController
   end
 
   def analyze_image(item)
-
     image_data = item.image.blob.download
     base64_image = Base64.strict_encode64(image_data)
 
@@ -100,8 +99,16 @@ class ItemsController < ApplicationController
         (red * 10000 + green * 100 + blue).to_s
       end
 
+      color_differences = colors.map do |color|
+        red = color['color']['red']
+        green = color['color']['green']
+        blue = color['color']['blue']
 
-      # RGB値をカンマで連結して保存
+        difference = [red, green, blue].max - [red, green, blue].min
+        difference.to_s
+      end
+
+      item.color_difference = color_differences.join('')
       item.rgb = rgb_values.join('')
       item.save
     else
