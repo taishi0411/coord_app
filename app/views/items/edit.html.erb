@@ -11,6 +11,16 @@ edit
     <%= f.label :画像%>
     <%= f.file_field :image %>
   </div>
+
+  <div class="ratings">
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+  </div>
+
+  <%= f.hidden_field :clean_index, id: "rating-value" %>
   
 
   <div class="new-form ">
@@ -19,3 +29,5 @@ edit
   <% end %>
 
    <%= button_to "削除", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
+
+   <%= javascript_include_tag "items.js" %>
