@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.genre_id = 4
 
     if @item.save!
       analyze_image(@item)
@@ -58,7 +57,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :image, :clean_index, :heat_index)
+    params.require(:item).permit(:name, :image, :clean_index, :heat_index, :genre_id)
   end
 
   def analyze_image(item)

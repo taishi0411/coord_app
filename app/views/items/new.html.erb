@@ -10,6 +10,10 @@
     <%= f.file_field :image %>
   </div>
 
+  <div class="field">
+      <%= f.select :genre_id,[["キャップ", 1], ["トップス", 2], ["アウター", 3], ["パンツ", 4], ["グラス", 5], ["シューズ", 6], ["バッグ", 7] ], include_blank: "ジャンル" , autofocus: true, autocomplete: "genre_id"%>
+    </div>
+
   <div class="ratings">
       <span class="fa fa-star-o" id="star"></span>
       <span class="fa fa-star-o" id="star"></span>

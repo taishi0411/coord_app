@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   validates :clean_index, presence: true
   validates :heat_index, presence: true
   validates :name, presence: true
+  validates :genre_id, presence: true
 
 
   belongs_to :user
