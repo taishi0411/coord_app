@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :image, :clean_index)
+    params.require(:item).permit(:name, :image, :clean_index, :heat_index)
   end
 
   def analyze_image(item)

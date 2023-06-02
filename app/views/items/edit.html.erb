@@ -21,8 +21,16 @@ edit
   </div>
 
   <%= f.hidden_field :clean_index, id: "rating-value" %>
-  
 
+  <div class="heatings">
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+  </div>
+  <%= f.hidden_field :heat_index, id: "heat-value" %>
+  
   <div class="new-form ">
       <%= f.submit "変更を保存する" %>
   </div>

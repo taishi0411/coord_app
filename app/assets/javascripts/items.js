@@ -1,7 +1,9 @@
 const stars = document.querySelector(".ratings").children;
 const ratingValue = document.getElementById("rating-value")
 
-let index;
+
+let clean_index;
+
 
 for(let i=0; i<stars.length; i++){
   stars[i].addEventListener("mouseover", function(){
@@ -17,7 +19,7 @@ for(let i=0; i<stars.length; i++){
 
   stars[i].addEventListener("click", function(){
       ratingValue.value = i + 1;
-      index = i;
+      clean_index = i;
   })
   
 
@@ -26,9 +28,45 @@ for(let i=0; i<stars.length; i++){
       stars[j].classList.remove("fa-star");
       stars[j].classList.add("fa-star-o");
     }
-    for(let j=0; j<=index; j++){
+    for(let j=0; j<=clean_index; j++){
       stars[j].classList.remove("fa-star-o");
       stars[j].classList.add("fa-star");
+    }
+  })
+}
+
+
+const heat = document.querySelector(".heatings").children;
+const heatingValue = document.getElementById("heat-value")
+
+let heat_index;
+
+
+for(let i=0; i<heat.length; i++){
+  heat[i].addEventListener("mouseover", function(){
+    for(let j=0; j<heat.length; j++){
+      heat[j].classList.remove("fa-circle");
+      heat[j].classList.add("fa-circle-o");
+    }
+    for(let j=0; j<=i; j++){
+      heat[j].classList.remove("fa-circle-o");
+      heat[j].classList.add("fa-circle");
+    }
+  })
+
+  heat[i].addEventListener("click", function(){
+      heatingValue.value = i + 1;
+      heat_index = i;
+  })
+
+  heat[i].addEventListener("mouseout", function(){
+    for(let j=0; j<heat.length; j++){
+      heat[j].classList.remove("fa-circle");
+      heat[j].classList.add("fa-circle-o");
+    }
+    for(let j=0; j<=heat_index; j++){
+      heat[j].classList.remove("fa-circle-o");
+      heat[j].classList.add("fa-circle");
     }
   })
 }
