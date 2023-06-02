@@ -10,19 +10,21 @@
     <%= f.file_field :image %>
   </div>
 
-  <span class="fa fa-star-o" id="star"></span>
-  <span class="fa fa-star-o" id="star"></span>
-  <span class="fa fa-star-o" id="star"></span>
-  <span class="fa fa-star-o" id="star"></span>
-  <span class="fa fa-star-o" id="star"></span>
+  <div class="ratings">
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+  </div>
 
-  <%= f.hidden_field :clean_index, id: "rationg-value" %>
+  <%= f.hidden_field :clean_index, id: "rating-value" %>
   
 
   <div class="new-form ">
       <%= f.submit "アイテムを追加する" %>
   </div>
 
-  
-      
 <% end %>
+
+<%= javascript_include_tag "items.js" %>
