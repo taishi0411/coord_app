@@ -14,7 +14,8 @@ edit
   
 
   <div class="new-form ">
-      <%= f.submit "編集" %>
+      <%= f.submit "変更を保存する" %>
   </div>
-
   <% end %>
+
+   <%= button_to "削除", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>

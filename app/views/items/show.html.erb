@@ -8,3 +8,5 @@ show
 <% if @item.image.attached? %>
     <%= image_tag @item.image %>
 <% end %>
+
+<%= link_to "編集", edit_item_path(@item) %>

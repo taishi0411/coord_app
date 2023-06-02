@@ -14,5 +14,6 @@
     <%= f.text_field :home_adress%>
 
     <%= f.submit "更新" %>
-
 <% end %>
+
+<%= button_to "アカウントを削除する", user_path(@user), { method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
