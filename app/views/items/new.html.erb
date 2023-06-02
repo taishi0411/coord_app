@@ -9,10 +9,18 @@
     <%= f.label :画像%>
     <%= f.file_field :image %>
   </div>
+
+  <span class="fa fa-star-o" id="star"></span>
+  <span class="fa fa-star-o" id="star"></span>
+  <span class="fa fa-star-o" id="star"></span>
+  <span class="fa fa-star-o" id="star"></span>
+  <span class="fa fa-star-o" id="star"></span>
+
+  <%= f.hidden_field :clean_index, id: "rationg-value" %>
   
 
   <div class="new-form ">
-      <%= f.submit "投稿" %>
+      <%= f.submit "アイテムを追加する" %>
   </div>
 
   
