@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  genre: one
+  name: MyString
+  clean_index: 1
+  heat_index: 1
+  rgb: 1
+  color_difference: 1
+
+two:
+  user: two
+  genre: two
+  name: MyString
+  clean_index: 1
+  heat_index: 1
+  rgb: 1
+  color_difference: 1

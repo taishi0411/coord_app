@@ -1,0 +1,12 @@
+show
+
+<%= @item.name %>
+<%= @item.genre_id %>
+<%= @item.rgb %>
+<%= @item.color_difference %>
+
+<% if @item.image.attached? %>
+    <%= image_tag @item.image %>
+<% end %>
+
+<%= link_to "編集", edit_item_path(@item) %>
