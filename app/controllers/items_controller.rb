@@ -96,7 +96,7 @@ class ItemsController < ApplicationController
         green = color['color']['green']
         blue = color['color']['blue']
 
-        (red * 10000 + green * 100 + blue).to_s
+        "%03d%03d%03d" % [red, green, blue]
       end
 
       color_differences = colors.map do |color|
