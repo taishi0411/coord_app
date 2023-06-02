@@ -1,13 +1,27 @@
-<h1>Items#index</h1>
+
+<div class="container">
+  <div class="title">
+    <p>クローゼット</p>
+  </div>
+
+  <div class="main">
+    <div class="nav">
+        なぶー
+      <div class="genres"></div>
+      <div class="add_item"></div>
+    </div>
+
+    <div class="contents">
+        <% @items.each do |item| %>
+          <%= link_to item_path(item) do %>
+            <% if item.image.attached? %>
+                <%= image_tag item.image %>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 
-<% @items.each do |item| %>
-  <%= item.name %>
-  <%= item.color_difference %>
 
-<%= link_to item_path(item) do %>
-  <% if item.image.attached? %>
-    <%= image_tag item.image %>
-  <% end %>
-<% end %>
-<% end %>
