@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
-  get '/users/index' => 'home#index'
+  get '/home/index' => 'home#index'
 
   devise_for :users
   

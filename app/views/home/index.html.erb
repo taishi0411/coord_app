@@ -1,1 +1,13 @@
 <p>カレントほーむ</p>
+
+ <%= link_to "更新",  home_index_path, method: :get %>
+
+<% @selected_items.each do |item| %>
+            
+          
+            <% if item.image.attached? %>
+                <%= image_tag item.image %>
+            <% end %>
+        <% end %>
+
+       
