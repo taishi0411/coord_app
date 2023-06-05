@@ -7,25 +7,20 @@ def get_weather(city_name, api_key)
   response = Net::HTTP.get(URI.parse(url))
   weather_data = JSON.parse(response)
 
+  main = weather_data['main']
   weather = weather_data['weather'][0]
-    puts "Weather in #{city_name}: #{weather['main']} - #{weather['description']}"
+
+  temperature_celsius = main['temp'] - 273.15
+  feels_like_celsius = main['feels_like'] - 273.15
+
+  puts "気温 in #{city_name}: #{temperature_celsius.round(2)}°C"
+  puts "体感温度 in #{city_name}: #{feels_like_celsius.round(2)}°C"
+  puts "天気 in #{city_name}: #{weather['main']}"
+  puts "-----"
 end
 
 # APIキーと都市名を設定してください
 api_key = "bbc2ca3e507e61ba0312afa078ee603a"
 city_name = ARGV[0]
 
-
-
-loop do
-  # 現在の時刻を取得
-  current_time = Time.now
-  puts "-----"
-  puts "Current Time: #{current_time}"
-  
-  # 天気情報を取得
-  get_weather(city_name, api_key)
-  
-  # 10分待機
-  sleep(600)
-end
+get_weather(city_name, api_key)
