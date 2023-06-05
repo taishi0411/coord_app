@@ -4,7 +4,9 @@ class HomeController < ApplicationController
   end
 
   def index
-    select_items(3,5)
+    clean_index = params[:clean_index].to_i
+    heat_index = params[:heat_index].to_i
+    select_items(clean_index, heat_index)
   end
 
 
