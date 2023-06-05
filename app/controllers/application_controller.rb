@@ -4,7 +4,7 @@ require 'json'
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_header
-  before_action :authenticate_user!, except: [:top, :index]
+ 
 
   def set_header
     if user_signed_in?

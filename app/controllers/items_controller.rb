@@ -6,6 +6,8 @@ API_URL = "https://vision.googleapis.com/v1/images:annotate?key=#{API_KEY}"
 
 
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @items = Item.where(user_id: current_user.id)
   end
