@@ -7,9 +7,16 @@ API_URL = "https://vision.googleapis.com/v1/images:annotate?key=#{API_KEY}"
 
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @items = Item.where(user_id: current_user.id)
+    if params[:genre_id] then
+      genre_id = params[:genre_id]
+      @items = Item.where(user_id: current_user.id)
+      @items = @items.where(genre_id: genre_id)
+    else
+      @items = Item.where(user_id: current_user.id)
+    end
+    
   end
 
   def show

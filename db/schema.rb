@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2023_05_28_181932) do
     t.integer "heat_index"
     t.integer "rgb"
     t.integer "color_difference"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", null: false.
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_items_on_genre_id"
     t.index ["user_id"], name: "index_items_on_user_id"

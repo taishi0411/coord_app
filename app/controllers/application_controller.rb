@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     temperature_celsius = main['temp'] - 273.15
     feels_like_celsius = main['feels_like'] - 273.15
   
-    @temperature_celsius = temperature_celsius.round(2)
+    @temperature_celsius = temperature_celsius.round(1)
     @main = weather['main']
   end
 

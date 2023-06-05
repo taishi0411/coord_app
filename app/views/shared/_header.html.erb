@@ -7,7 +7,19 @@
           <% end %>
         </div>
 
-        <%= @main %>
+        <% if @main == "Clouds" then %>
+              <%= image_tag 'Clouds.png', class: 'Clouds' %>
+          <% elsif @main == "Rain" then %>
+              <%= image_tag 'Rain.png', class: 'Rain' %>
+          <% elsif @main == "Clear" then %>
+              <%= image_tag 'Clear.png', class: 'Clear' %>
+          <% elsif @main == "Snow" then %>
+              <%= image_tag 'Snow.png', class: 'Snow' %>
+          <% elsif @main == "Thunderstorm" then %>
+              <%= image_tag 'Thunder.png', class: 'Thunder' %>
+          <% else %>
+              <%= image_tag 'Clouds.png', class: 'Clouds' %>
+        <% end %>
         <%=  @temperature_celsius %>
 
         <div class="nav">
