@@ -1,14 +1,58 @@
-<h1>Items#index</h1>
+
+<div class="container">
+  <div class="title">
+    <p>クローゼット</p>
+  </div>
+
+  <div class="main">
+    <div class="nav">
+        なぶー
+      <div class="genres">
+          <%= link_to items_path do %>
+            <%= image_tag "all.png", alt: "all" %>
+          <% end %>
+          <%= link_to items_path(genre_id: 1) do %>
+            <%= image_tag "hat.png", alt: "hat" %>
+          <% end %>
+
+          <%= link_to items_path(genre_id: 2) do %>
+            <%= image_tag "tops.png", alt: "tops" %>
+          <% end %>
+
+          <%= link_to items_path(genre_id: 3) do %>
+            <%= image_tag "outer.png", alt: "outer" %>
+          <% end %>
+
+          <%= link_to items_path(genre_id: 4) do %>
+            <%= image_tag "pants.png", alt: "pants" %>
+          <% end %>
+
+          <%= link_to items_path(genre_id: 5) do %>
+            <%= image_tag "glass.png", alt: "glass" %>
+          <% end %>
+
+          <%= link_to items_path(genre_id: 6) do %>
+            <%= image_tag "shoes.png", alt: "shoes" %>
+          <% end %>
+
+          <%= link_to items_path(genre_id: 7) do %>
+            <%= image_tag "bag.png", alt: "bag" %>
+          <% end %>
+      </div>
+      <div class="add_item"></div>
+    </div>
+
+    <div class="contents">
+        <% @items.each do |item| %>
+          <%= link_to item_path(item) do %>
+            <% if item.image.attached? %>
+                <%= image_tag item.image %>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 
-<% @items.each do |item| %>
-  <%= item.name %>
-  <%= item.color_difference %>
 
-<%= link_to item_path(item) do %>
-  <% if item.image.attached? %>
-    <%= image_tag item.image %>
-  <% end %>
-<% end %>
-
-<% end %>

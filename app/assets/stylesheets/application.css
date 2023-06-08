@@ -13,27 +13,42 @@
  *= require_tree .
  *= require_self
  */
+ 
+ header{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+ }
 
 .header-nav{
  display: flex;
  justify-content:space-between;
- background-color: #FFE000;
- height: 75px;
+ background-color: #FFFFFF;
+ height: 130px;
+ border-bottom: 4px solid #2b2b2b;
 }
 
 .header-nav .nav{
-  padding-top: 22px;
+  padding-top: 50px;
+  padding-right: 20px;
 }
 
 header a{
   text-decoration: none;
   color: #2b2b2b;
   font-weight: bold;
+  font-size: 15px;
+  margin-right: 10px;
   
+}
+
+header a:hover{
+  color: #249EA6;
+  transition: 0.3s;
 }
 
 header .app_logo img{
   display: inline-block;
     width: 150px;
-    padding: 18px 0 0 35px;
+    padding: 45px 0 0 40px;
 }

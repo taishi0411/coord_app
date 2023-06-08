@@ -228,3 +228,64 @@ $gray-color:#f2f2f2;
     }
   }
 }
+
+
+#items-index{  
+  .container{
+    .title{
+      color: $base-color;
+      font-size: 25px;
+      font-weight: bold;
+      padding: 20px 0px 20px 60px;
+    }
+    
+    .main{
+      display: flex;
+      overflow-wrap: normal;
+      .nav{
+        margin-right: 25px;
+        border-right: 2px $base-color solid;
+        width: 20%;
+        position: sticky;
+        left: 0px;
+        top: 0px;
+        .genres{
+
+        }
+
+        .add_item{
+
+        }
+
+      }
+
+      .contents{
+        width: 80%;
+  
+        display: flex;
+        flex-wrap: wrap;
+          a{
+            margin-right: 10px;
+            display: inline-block;
+            width: 24%;
+            margin-bottom: 10px;
+            :hover{
+              opacity: 0.8;
+            }
+            img{
+              width: 100%;
+              height: 490px;
+            }
+          }
+                  
+      }
+    }
+  }
+}
+
+
+#home-index{
+  img{
+    width: 200px;
+  }
+}

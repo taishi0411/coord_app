@@ -11,11 +11,41 @@ edit
     <%= f.label :画像%>
     <%= f.file_field :image %>
   </div>
-  
 
+  <div class="ratings">
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      <span class="fa fa-star-o" id="star"></span>
+      
+  </div>
+
+  <%= f.hidden_field :clean_index, id: "rating-value" %>
+
+  <div class="heatings">
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+      <span class="fa fa-circle-o" id="heat"></span>
+     
+  </div>
+  <%= f.hidden_field :heat_index, id: "heat-value" %>
+  
   <div class="new-form ">
       <%= f.submit "変更を保存する" %>
   </div>
   <% end %>
 
    <%= button_to "削除", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
+
+   <%= javascript_include_tag "items.js" %>

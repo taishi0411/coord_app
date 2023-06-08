@@ -1,1 +1,21 @@
 <p>カレントほーむ</p>
+
+<%= form_for(home_index_path, method: "get") do %>
+  <%= label_tag(:clean_index, "Clean Index:") %>
+  <%= number_field_tag(:clean_index, nil, id: "clean_index") %>
+  
+  <%= label_tag(:heat_index, "Heat Index:") %>
+  <%= number_field_tag(:heat_index, nil, id: "heat_index") %>
+  
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<% @selected_items.each do |item| %>
+            
+          
+            <% if item.image.attached? %>
+                <%= image_tag item.image %>
+            <% end %>
+        <% end %>
+
+       

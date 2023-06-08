@@ -6,8 +6,17 @@ API_URL = "https://vision.googleapis.com/v1/images:annotate?key=#{API_KEY}"
 
 
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @items = Item.where(user_id: current_user.id)
+    if params[:genre_id] then
+      genre_id = params[:genre_id]
+      @items = Item.where(user_id: current_user.id)
+      @items = @items.where(genre_id: genre_id)
+    else
+      @items = Item.where(user_id: current_user.id)
+    end
+    
   end
 
   def show
@@ -21,7 +30,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.genre_id = 4
 
     if @item.save!
       analyze_image(@item)
@@ -58,7 +66,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :image)
+    params.require(:item).permit(:name, :image, :clean_index, :heat_index, :genre_id)
   end
 
   def analyze_image(item)
@@ -97,7 +105,7 @@ class ItemsController < ApplicationController
         green = color['color']['green']
         blue = color['color']['blue']
 
-        (red * 10000 + green * 100 + blue).to_s
+        "%03d%03d%03d" % [red, green, blue]
       end
 
       color_differences = colors.map do |color|
