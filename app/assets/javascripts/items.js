@@ -70,3 +70,18 @@ for(let i=0; i<heat.length; i++){
     }
   })
 }
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var genreSelect = document.getElementById("genre_id_select");
+  var heatIndexField = document.getElementById("heat_index");
+
+  function toggleHeatIndexField() {
+    heatIndexField.style.display = (genreSelect.value >= 2 && genreSelect.value <= 4) ? "block" : "none";
+  }
+
+  toggleHeatIndexField();
+  genreSelect.addEventListener("change", toggleHeatIndexField);
+});
