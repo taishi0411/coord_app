@@ -18,12 +18,13 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  
  }
 
 .header-nav{
  display: flex;
  justify-content:space-between;
- background-color: #FFFFFF;
+ background-color: #ffd16e;
  height: 130px;
  border-bottom: 4px solid #2b2b2b;
 }
@@ -31,6 +32,12 @@
 .header-nav .nav{
   padding-top: 50px;
   padding-right: 20px;
+}
+
+.header-nav .nav img{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
 }
 
 header a{

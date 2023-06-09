@@ -5,9 +5,9 @@ class HomeController < ApplicationController
   end
   
   def index
-  clean_index = params[:clean_index].to_i
-  heat_index = params[:heat_index].to_i
-  select_items(7, 6)
+  @clean_index = params[:clean_index].to_i
+  @heat_index = params[:heat_index].to_i
+  select_items(@clean_index, @heat_index)
   end
   
   private

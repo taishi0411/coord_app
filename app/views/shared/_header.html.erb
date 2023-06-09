@@ -7,6 +7,7 @@
           <% end %>
         </div>
 
+        <div class="nav">
         <% if @main == "Clouds" then %>
               <%= image_tag 'Clouds.png', class: 'Clouds' %>
           <% elsif @main == "Rain" then %>
@@ -21,8 +22,7 @@
               <%= image_tag 'Clouds.png', class: 'Clouds' %>
         <% end %>
         <%=  "#{@temperature_celsius}℃" %>
-
-        <div class="nav">
+        
           <%= link_to 'アイテム登録',  new_item_path %>
           <%= link_to 'クローゼット', items_path %>
            <%= link_to user_path(current_user) do %>

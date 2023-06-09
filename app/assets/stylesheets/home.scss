@@ -288,7 +288,18 @@ $gray-color:#f2f2f2;
 
 
 #home-index{
-  img{
-    width: 200px;
+  .container{
+    display: flex;
+    .contents{
+      img{
+        width: 200px;
+        height: 266px;
+      }
+    }
+
+    .nav{
+
+    }
   }
+  
 }
