@@ -1,49 +1,37 @@
-<%= @clean_index%>
-<%= @heat_index%>
-
-<% if @selected_items.present? %>
-
-  <% clean_index_avg = @selected_items.sum(&:clean_index).to_f / @selected_items.size %>
-  <p>Clean Indexの平均: <%= clean_index_avg %></p>
-  
-  <% heat_index_sum = 0 %>
-  <% count = 0 %>
-  <% genre_3_items = @selected_items.select { |item| item.genre_id == 3 } %>
-  
-  <% if genre_3_items.present? %>
-    <% genre_3_items.each do |item| %>
-      <% heat_index_sum += item.heat_index %>
-      <% count += 1 %>
-    <% end %>
-    <% heat_index_avg = heat_index_sum.to_f / count %>
-    <p>Heat Indexの平均: <%= heat_index_avg %></p>
-  <% else %>
-    <% genre_2_4_items = @selected_items.select { |item| [2, 4].include?(item.genre_id) } %>
-    <% if genre_2_4_items.present? %>
-      <% heat_index_sum = genre_2_4_items.sum(&:heat_index) %>
-      <% count = genre_2_4_items.size %>
-      <% heat_index_avg = heat_index_sum.to_f / count %>
-      <p>Heat Indexの平均: <%= heat_index_avg %></p>
-    <% else %>
-      <p>Heat Indexの平均: N/A</p>
-    <% end %>
-  <% end %>
-<% end %>
 
 <div class="container">
     <div class="contents">
 <% @selected_items.each do |item| %>
-  <%= item.clean_index %>
-  <% if item.image.attached? %>
-    <%= image_tag item.image %>
-  <% end %>
+<div class="item">
+  <div class="data">
+    <div class="img">
+    <%= link_to item_path(item) do %>
+      <% if item.image.attached? %>
+        <%= image_tag item.image %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="info">
+  <p><%= item.name %></p>
+  <p>綺麗め度:<%= item.clean_index %></p>
+  <p>厚着度:<%= item.heat_index %></p>
+  </div>
+  </div>
+    
+</div>
+  
 <% end %>
 </div>
 
 
 <div class="nav">
 <%= form_with(url: home_index_path, method: "get", local: true) do |f| %>
-  <div class="ratings">
+
+<div class="clean-index">
+<%= image_tag 'white_shirt.png', class: 'white_shirt' %>
+
+<div class="ratings">
     <span class="fa fa-star-o" id="star"></span>
     <span class="fa fa-star-o" id="star"></span>
     <span class="fa fa-star-o" id="star"></span>
@@ -55,6 +43,12 @@
     <span class="fa fa-star-o" id="star"></span>
   </div>
   <%= f.hidden_field :clean_index, id: "rating-value" %>
+
+  <%= image_tag 'suit.png', class: 'suit' %>
+</div>
+
+<div class="heat-index">
+  <%= image_tag 'minus-solid.svg', class: 'white_shirt' %>
 
   <div class="heatings">
     <span class="fa fa-circle-o" id="heat"></span>
@@ -68,6 +62,10 @@
     <span class="fa fa-circle-o" id="heat"></span>
   </div>
   <%= f.hidden_field :heat_index, id: "heat-value" %>
+
+  <%= image_tag 'plus-solid.svg', class: 'white_shirt' %>
+</div>
+  
 
   <div class="color-difference"></div>
 
