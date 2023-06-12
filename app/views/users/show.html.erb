@@ -1,13 +1,40 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 
-           <span class="username"> <%= @user.name %></span>
-           <span class="username"> <%= @user.home_adress %></span>
+<div class="title">
+  <p>
+  プロフィール
+  </p>
+</div>
 
-            
 
-            <% if @user.id == current_user.id %>
-               <span class="email"> <%= @user.email %></span>
-                <%= link_to '編集', edit_user_path(@user) %>
-            <% else %>
-            <% end %>
+<div class="container">
+<div class="form">
+  <div class="new-name form-title">
+    <div class="name">
+      <div class="block"></div> 
+      <p>ユーザ名</p>
+    </div>
+    <input type="name" placeholder="<%= @user.name %>">
+    
+  </div>
+
+  <div class="new-genre form-title">
+    <div class="name">
+      <div class="block"></div>
+      <p>お住まい</p>
+    </div>
+    <input type="name" placeholder="<%= @user.home_adress %>">
+    </div>
+
+
+    <div class="new-genre form-title">
+    <div class="name">
+        <div class="block"></div>
+        <p>メールアドレス</p>
+    </div>
+    <input type="name" placeholder="<%= @user.email %>">
+    </div>
+
+  <div class="new-form-button">
+      <%=  link_to 'プロフィールを編集する', edit_user_path(@user)  %>
+  </div>
+</div>

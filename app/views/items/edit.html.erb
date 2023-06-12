@@ -1,51 +1,113 @@
-edit
 
-<%= form_with(model: @item, local: true) do |f| %>
-  <div class="new-form">
-      <%= f.label :アイテム名%>
+<div class="title">
+  <p>
+  アイテム編集
+  </p>
+</div>
+
+<div class="container">
+<div class="image">
+  <div id="image-preview">
+      <% if @item.image.attached? %>
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image %>
+        <% end %>
+      <% else %>
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image %>
+        <% end %>
+      <% end %>
+    </div>
+</div>
+
+
+<div class="form">
+    <%= form_with(model: @item, local: true, url: items_path) do |f| %>
+
+  <div class="new-form-img form-title">
+    <div class="name">
+      <div class="block"></div>
+       <%= f.label :画像 %>
+    </div>
+    <%= f.file_field :image, id: "image-upload", accept: "image/*" %>
+  </div>
+
+  <div class="new-name form-title">
+    <div class="name">
+      <div class="block"></div> 
+      <%= f.label :アイテム名 %>
+    </div>
       <%= f.text_field :name%>
+    
   </div>
 
+  <div class="new-genre form-title">
+    <div class="name">
+      <div class="block"></div>
+      <%= f.label :ジャンル %>
+    </div>
+      <%= f.select :genre_id,[["キャップ", 1], ["トップス", 2], ["アウター", 3], ["パンツ", 4], ["グラス", 5], ["シューズ", 6], ["バッグ", 7] ], include_blank: "ジャンルを選択" , autofocus: true, autocomplete: "genre_id"%>
+    </div>
 
-  <div class="new-form-img">
-    <%= f.label :画像%>
-    <%= f.file_field :image %>
-  </div>
+    <div class="name">
+      <div class="block"></div>
+      <%= f.label :綺麗め度と厚さ度 %>
+    </div>
 
-  <div class="ratings">
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      
-  </div>
-
+    <div class="clean">
+    <%= image_tag 'white_shirt.png', class: 'white_shirt' %>
+      <div class="ratings">
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+      </div>
   <%= f.hidden_field :clean_index, id: "rating-value" %>
+  <%= image_tag 'suit.png', class: 'suit' %> 
+    </div>
 
-  <div class="heatings">
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-      <span class="fa fa-circle-o" id="heat"></span>
-     
-  </div>
-  <%= f.hidden_field :heat_index, id: "heat-value" %>
+
   
-  <div class="new-form ">
-      <%= f.submit "変更を保存する" %>
+  <div class="heat">
+      <i class="fa-solid fa-minus"></i>
+      <div class="heatings">
+        <span class="fa fa-circle-o heat1" id="heat"></span>
+        <span class="fa fa-circle-o heat2" id="heat"></span>
+        <span class="fa fa-circle-o heat3" id="heat"></span>
+        <span class="fa fa-circle-o heat4" id="heat"></span>
+        <span class="fa fa-circle-o heat5" id="heat"></span>
+        <span class="fa fa-circle-o heat6" id="heat"></span>
+        <span class="fa fa-circle-o heat7" id="heat"></span>
+        <span class="fa fa-circle-o heat8" id="heat"></span>
+        <span class="fa fa-circle-o heat9" id="heat"></span>
+      </div>
+      <%= f.hidden_field :heat_index, id: "heat-value" %>
+      <i class="fa-solid fa-plus"></i>
   </div>
-  <% end %>
 
-   <%= button_to "削除", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
+  
+  
 
-   <%= javascript_include_tag "items.js" %>
+  <div class="new-form-button">
+       <%= f.submit "変更を保存する" %>
+  </div>
+
+  <div class="destroy-button">
+    <%= button_to "アイテムを削除する", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
+  </div>
+
+     
+
+<% end %>
+</div>
+
+
+
+
+
+<%= javascript_include_tag "items.js" %>
