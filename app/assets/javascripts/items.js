@@ -85,3 +85,23 @@ document.addEventListener("DOMContentLoaded", function() {
   toggleHeatIndexField();
   genreSelect.addEventListener("change", toggleHeatIndexField);
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById("image-upload");
+  const preview = document.getElementById("image-preview");
+
+  input.addEventListener("change", function() {
+    if (this.files && this.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        preview.innerHTML = '<img src="' + e.target.result + '" alt="画像プレビュー">';
+      };
+
+      reader.readAsDataURL(this.files[0]);
+    } else {
+      preview.innerHTML = "";
+    }
+  });
+});

@@ -1,12 +1,71 @@
-show
+<div class="title">
+  <p>
+  アイテム詳細
+  </p>
+</div>
 
-<%= @item.name %>
+
+
+
 <%= @item.genre_id %>
-<%= @item.rgb %>
-<%= @item.color_difference %>
 
-<% if @item.image.attached? %>
-    <%= image_tag @item.image %>
-<% end %>
 
-<%= link_to "編集", edit_item_path(@item) %>
+<div class="container">
+<div class="image">
+  <div id="image-preview">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image %>
+        <% end %>
+    </div>
+</div>
+
+
+<div class="form">
+  <div class="new-form-img form-title">
+    <div class="name">
+      <div class="block"></div>
+       <p>画像</p>
+    </div>
+
+  <div class="new-name form-title">
+    <div class="name">
+      <div class="block"></div> 
+      <p>アイテム名</p>
+      <%= @item.name %>
+    </div>
+    
+  </div>
+
+  <div class="new-genre form-title">
+    <div class="name">
+      <div class="block"></div>
+      <p>ジャンル</p>
+    </div>
+    </div>
+
+    <div class="name">
+      <div class="block"></div>
+      <p>綺麗め度と暑さ度</p>
+    </div>
+
+    <div class="clean">
+    <%= image_tag 'white_shirt.png', class: 'white_shirt' %>
+  <%= image_tag 'suit.png', class: 'suit' %> 
+    </div>
+
+
+  
+  <div class="heat">
+      <i class="fa-solid fa-minus"></i>
+      <i class="fa-solid fa-plus"></i>
+  </div>
+
+  
+  
+
+  <div class="new-form-button">
+      <%= link_to "編集", edit_item_path(@item) %>
+  </div>
+</div>
+
+<%= javascript_include_tag "items.js" %>
