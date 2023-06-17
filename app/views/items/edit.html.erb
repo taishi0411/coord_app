@@ -22,7 +22,7 @@
 
 
 <div class="form">
-    <%= form_with(model: @item, local: true, url: items_path) do |f| %>
+    <%= form_with(model: @item, local: true, url: item_path) do |f| %>
 
   <div class="new-form-img form-title">
     <div class="name">
@@ -97,15 +97,13 @@
        <%= f.submit "変更を保存する" %>
   </div>
 
-  <div class="destroy-button">
-    <%= button_to "アイテムを削除する", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
-  </div>
-
-     
-
 <% end %>
 </div>
 
+
+<div class="destroy-button">
+    <%= button_to "アイテムを削除する", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
+  </div>
 
 
 
