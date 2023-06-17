@@ -16,6 +16,8 @@
   <p><%= item.name %></p>
   <p>綺麗め度:<%= item.clean_index %></p>
   <p>厚着度:<%= item.heat_index %></p>
+  <p>カラー度:<%= item.color_difference %></p>
+  
   </div>
   </div>
     
@@ -67,11 +69,18 @@
 </div>
   
 
-  <div class="color-difference"></div>
+  <div class="color-select">
+      <label for="color-select-checkbox">
+        <input type="checkbox" id="color-select-checkbox" name="color_select" <%= params[:color_select] == 'on' ? 'checked' : '' %>>
+        Color Select
+      </label>
+    </div>
 
   <div class="button">
     <%= f.submit "コーデを組む" %>
   </div>
+
+ <%=@high_difference_count%>
 <% end %>
   
 </div>

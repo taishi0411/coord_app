@@ -90,20 +90,18 @@
       <i class="fa-solid fa-plus"></i>
   </div>
 
-  
-  
-
   <div class="new-form-button">
        <%= f.submit "変更を保存する" %>
   </div>
-
 <% end %>
-</div>
-
 
 <div class="destroy-button">
     <%= button_to "アイテムを削除する", item_path(@item),{ method: :delete, data: { confirm: "本当に削除してもいいですか？" } } %>
   </div>
+</div>
+
+
+
 
 
 

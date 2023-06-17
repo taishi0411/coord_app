@@ -7,7 +7,14 @@ class HomeController < ApplicationController
   def index
     @clean_index = params[:clean_index].to_i
     @heat_index = params[:heat_index].to_i
-    select_items(@clean_index, @heat_index)
+     selected_items = select_items(@clean_index, @heat_index)
+     
+     
+     if params[:color_select] == 'on'
+      selected_items = color_select(selected_items)
+    end
+
+    @high_difference_count = count_high_difference_items(@selected_items)
   end
 
   private
@@ -59,4 +66,43 @@ class HomeController < ApplicationController
 
     @selected_items.shuffle!(random: SecureRandom)
   end
+
+
+  def color_select(selected_items)
+    high_difference_items = selected_items.select { |item| item.color_difference >= 40 }
+    high_difference_count = high_difference_items.count
+
+    if high_difference_count.zero?
+      selected_genres = selected_items.map(&:genre_id)
+      random_genre_id = selected_genres.sample
+
+      exchange_items = find_exchange_items(selected_items, random_genre_id)
+
+      if exchange_items.empty?
+        available_genres = (1..7).to_a - selected_genres.uniq
+
+        available_genres.each do |genre_id|
+          exchange_items = find_exchange_items(selected_items, genre_id)
+          break unless exchange_items.empty?
+        end
+      end
+
+      unless exchange_items.empty?
+        item_to_exchange = exchange_items.sample
+        item_to_replace = selected_items.find { |item| item.genre_id == random_genre_id && item.color_difference < 40 }
+        selected_items[selected_items.index(item_to_replace)] = item_to_exchange
+      end
+    end
+
+    selected_items
+  end
+  
+  def find_exchange_items(selected_items, genre_id)
+    Item.where(genre_id: genre_id).where('color_difference >= 40')
+  end
+
+  def count_high_difference_items(items)
+    items.count { |item| item.color_difference >= 40 }
+  end
+
 end
