@@ -7,14 +7,9 @@ class HomeController < ApplicationController
   def index
     @clean_index = params[:clean_index].to_i
     @heat_index = params[:heat_index].to_i
-     selected_items = select_items(@clean_index, @heat_index)
-     
-     
-     if params[:color_select] == 'on'
-      selected_items = color_select(selected_items)
-    end
+    select_items(@clean_index, @heat_index)
 
-    @high_difference_count = count_high_difference_items(@selected_items)
+    color_select
   end
 
   private
@@ -68,41 +63,51 @@ class HomeController < ApplicationController
   end
 
 
-  def color_select(selected_items)
-    high_difference_items = selected_items.select { |item| item.color_difference >= 40 }
-    high_difference_count = high_difference_items.count
+      def color_select
+        count = @selected_items.count { |item| item.color_difference >= 40 }
 
-    if high_difference_count.zero?
-      selected_genres = selected_items.map(&:genre_id)
-      random_genre_id = selected_genres.sample
+        if count == 0
+          remaining_items = @selected_items.to_a
+          remaining_items.each do |item|
+            genre_id = item.genre_id
+            same_genre_items = Item.where(genre_id: genre_id, color_difference: 40..Float::INFINITY)
+                                   .where.not(id: @selected_items.map(&:id))
+                                   .order("ABS(clean_index - #{item.clean_index}) ASC")
+                                   .first
+      
+            if same_genre_items.present?
+              @selected_items[@selected_items.index(item)] = same_genre_items
+              flash[:notice] = "差し色成功__count0"
+              @selected_items = @selected_items 
+              return 
+            end
+          end
+      elsif count == 1
+      flash[:notice] = "差し色成功__count1"
+      else
+      remaining_items = @selected_items.select { |item| item.color_difference >= 40 }
+      miss_count = 0
 
-      exchange_items = find_exchange_items(selected_items, random_genre_id)
+      remaining_items.each do |item|
+        break if miss_count >= 2
 
-      if exchange_items.empty?
-        available_genres = (1..7).to_a - selected_genres.uniq
+        genre_id = item.genre_id
+        similar_item = Item.where(genre_id: genre_id, color_difference: 0...39)
+                            .where.not(id: @selected_items.map(&:id))
+                            .order("ABS(clean_index - #{item.clean_index}) ASC")
+                            .first
 
-        available_genres.each do |genre_id|
-          exchange_items = find_exchange_items(selected_items, genre_id)
-          break unless exchange_items.empty?
+        if similar_item
+          @selected_items[@selected_items.index(item)] = similar_item
+          flash[:notice] = "差し色成功__count2"
+        else
+          miss_count += 1
         end
       end
 
-      unless exchange_items.empty?
-        item_to_exchange = exchange_items.sample
-        item_to_replace = selected_items.find { |item| item.genre_id == random_genre_id && item.color_difference < 40 }
-        selected_items[selected_items.index(item_to_replace)] = item_to_exchange
+      if miss_count >= 2
+        flash[:notice] = "差し色失敗__count HI"
       end
-    end
-
-    selected_items
-  end
-  
-  def find_exchange_items(selected_items, genre_id)
-    Item.where(genre_id: genre_id).where('color_difference >= 40')
-  end
-
-  def count_high_difference_items(items)
-    items.count { |item| item.color_difference >= 40 }
-  end
-
+      end
+end
 end
