@@ -20,7 +20,7 @@ def get_weather(city_name, api_key)
 end
 
 # APIキーと都市名を設定してください
-api_key = "bbc2ca3e507e61ba0312afa078ee603a"
+api_key =  ENV['WEATHER_API_KEY']
 city_name = ARGV[0]
 
 get_weather(city_name, api_key)
