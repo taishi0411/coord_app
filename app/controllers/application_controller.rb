@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     current_user_id = current_user.id
     @user = User.find(current_user_id)
 
-    api_key = "bbc2ca3e507e61ba0312afa078ee603a"
+    api_key = ENV['WEATHER_API_KEY']
 
     get_weather(@user.home_adress, api_key)
     else
