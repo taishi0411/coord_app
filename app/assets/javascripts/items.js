@@ -105,3 +105,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+const checkbox = document.getElementById('color-select-checkbox');
+const toggleLabel = document.querySelector('.toggle_label');
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    toggleLabel.classList.add('checked');
+  } else {
+    toggleLabel.classList.remove('checked');
+  }
+});

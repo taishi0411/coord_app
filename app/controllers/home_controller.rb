@@ -9,7 +9,9 @@ class HomeController < ApplicationController
     @heat_index = params[:heat_index].to_i
     select_items(@clean_index, @heat_index)
 
-    color_select
+    if params[:color_select] == 'on'
+      color_select
+    end
   end
 
   private
@@ -77,13 +79,13 @@ class HomeController < ApplicationController
       
             if same_genre_items.present?
               @selected_items[@selected_items.index(item)] = same_genre_items
-              flash[:notice] = "差し色成功__count0"
+              flash[:notice] = "差し色成功しました。"
               @selected_items = @selected_items 
               return 
             end
           end
       elsif count == 1
-      flash[:notice] = "差し色成功__count1"
+      flash[:notice] = "差し色成功しました。"
       else
       remaining_items = @selected_items.select { |item| item.color_difference >= 40 }
       miss_count = 0
@@ -99,14 +101,14 @@ class HomeController < ApplicationController
 
         if similar_item
           @selected_items[@selected_items.index(item)] = similar_item
-          flash[:notice] = "差し色成功__count2"
+          flash[:notice] = "差し色成功しました。"
         else
           miss_count += 1
         end
       end
 
       if miss_count >= 2
-        flash[:notice] = "差し色失敗__count HI"
+        flash[:notice] = "差し色失敗しました。モノトーンアイテムがありません。"
       end
       end
 end

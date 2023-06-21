@@ -10,20 +10,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+  <body>
     <% if user_signed_in? %>
       <%= render 'shared/header'%>
     <% else %>
     <% end %>
 
-    <!-- アラートの表示 -->
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>">
-        <%= value %>
-      </div>
-    <% end %>
-    
+    <div id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= yield %>
+    </div>
+    
 
     <%= render 'shared/footer'%>
   </body>

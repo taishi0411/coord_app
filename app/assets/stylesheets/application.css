@@ -18,7 +18,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  
+  height: 130px;
  }
 
 .header-nav{
@@ -30,14 +30,36 @@
 }
 
 .header-nav .nav{
-  padding-top: 50px;
-  padding-right: 20px;
+  padding-right: 70px;
+  display: flex;
+  
 }
 
-.header-nav .nav img{
+.header-nav .nav .weather{
+  display: flex;
+  text-align: center;
+  padding-top: 51px;
+  
+}
+
+.header-nav .nav .weather p{
+  font-family: "YakuHanJP","Noto Sans JP",sans-serif;
+  padding: 4px 0 0 7px;
+}
+
+.header-nav .nav .weather img{
   width: 30px;
   height: 30px;
   display: inline-block;
+  margin-bottom: 20px;
+}
+
+.header-nav .nav .links{
+  padding-top: 55px;
+}
+
+.header-nav .nav .links .link-left{
+  margin-left: 60px;
 }
 
 header a{
@@ -54,8 +76,42 @@ header a:hover{
   transition: 0.3s;
 }
 
+
+header .app_logo{
+ padding-left: 30px;
+}
+
 header .app_logo img{
   display: inline-block;
     width: 150px;
     padding: 45px 0 0 40px;
+}
+
+footer{
+  
+  z-index:-1;
+  height: 110px;
+  background-color: #9b9b9a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .contents img{
+  padding: 0 0 10px 0;
+  width: 80px;
+ 
+  margin: 0 auto;
+}
+
+footer .contents p{
+  font-size: 12px;
+  padding-bottom: 5px;
+  display: inline-block;
 }

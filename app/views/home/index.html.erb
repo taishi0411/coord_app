@@ -50,31 +50,32 @@
 </div>
 
 <div class="heat-index">
-  <%= image_tag 'minus-solid.svg', class: 'white_shirt' %>
+  <i class="fa-solid fa-minus"></i>
 
   <div class="heatings">
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
-    <span class="fa fa-circle-o" id="heat"></span>
+    <span class="fa fa-circle-o" id="heat1"></span>
+    <span class="fa fa-circle-o" id="heat2"></span>
+    <span class="fa fa-circle-o" id="heat3"></span>
+    <span class="fa fa-circle-o" id="heat4"></span>
+    <span class="fa fa-circle-o" id="heat5"></span>
+    <span class="fa fa-circle-o" id="heat6"></span>
+    <span class="fa fa-circle-o" id="heat7"></span>
+    <span class="fa fa-circle-o" id="heat8"></span>
+    <span class="fa fa-circle-o" id="heat9"></span>
   </div>
   <%= f.hidden_field :heat_index, id: "heat-value" %>
 
-  <%= image_tag 'plus-solid.svg', class: 'white_shirt' %>
+   <i class="fa-solid fa-plus"></i>
 </div>
   
 
   <div class="color-select">
       <label for="color-select-checkbox">
         <input type="checkbox" id="color-select-checkbox" name="color_select" <%= params[:color_select] == 'on' ? 'checked' : '' %>>
-        Color Select
+        差し色モード
       </label>
     </div>
+
 
   <div class="button">
     <%= f.submit "コーデを組む" %>
