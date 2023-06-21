@@ -77,6 +77,7 @@ rgbの最小値と最大値の差が小さいほどモノトーン(黒or白)に�
 
 差し色モードにチェックを入れると差し色コーデになります。
 
+color_differeceの低いコーデの中に一つcolor_differeceの高いアイテムを取り出します。
 
 <img width="1906" alt="color_select" src="https://github.com/taishi0411/coord_app/assets/106446066/5d6de789-92d2-4623-90e9-51177fb08e41">  
 
