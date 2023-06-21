@@ -70,3 +70,49 @@ for(let i=0; i<heat.length; i++){
     }
   })
 }
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var genreSelect = document.getElementById("genre_id_select");
+  var heatIndexField = document.getElementById("heat_index");
+
+  function toggleHeatIndexField() {
+    heatIndexField.style.display = (genreSelect.value >= 2 && genreSelect.value <= 4) ? "block" : "none";
+  }
+
+  toggleHeatIndexField();
+  genreSelect.addEventListener("change", toggleHeatIndexField);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById("image-upload");
+  const preview = document.getElementById("image-preview");
+
+  input.addEventListener("change", function() {
+    if (this.files && this.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        preview.innerHTML = '<img src="' + e.target.result + '" alt="画像プレビュー">';
+      };
+
+      reader.readAsDataURL(this.files[0]);
+    } else {
+      preview.innerHTML = "";
+    }
+  });
+});
+
+const checkbox = document.getElementById('color-select-checkbox');
+const toggleLabel = document.querySelector('.toggle_label');
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    toggleLabel.classList.add('checked');
+  } else {
+    toggleLabel.classList.remove('checked');
+  }
+});

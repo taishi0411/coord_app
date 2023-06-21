@@ -1,21 +1,99 @@
-<p>カレントほーむ</p>
 
-<%= form_for(home_index_path, method: "get") do %>
-  <%= label_tag(:clean_index, "Clean Index:") %>
-  <%= number_field_tag(:clean_index, nil, id: "clean_index") %>
-  
-  <%= label_tag(:heat_index, "Heat Index:") %>
-  <%= number_field_tag(:heat_index, nil, id: "heat_index") %>
-  
-  <%= submit_tag("Submit") %>
-<% end %>
-
+<div class="container">
+    <div class="contents">
 <% @selected_items.each do |item| %>
-            
-          
-            <% if item.image.attached? %>
-                <%= image_tag item.image %>
-            <% end %>
-        <% end %>
+<div class="item">
+  <div class="data">
+    <div class="img">
+    <%= link_to item_path(item) do %>
+      <% if item.image.attached? %>
+        <%= image_tag item.image %>
+      <% end %>
+    <% end %>
+  </div>
 
-       
+  <div class="info">
+  <p><%= item.name %></p>
+  <p>綺麗め度:<%= item.clean_index %></p>
+  <p>厚着度:<%= item.heat_index %></p>
+  <p>カラー度:<%= item.color_difference %></p>
+  
+  </div>
+  </div>
+    
+</div>
+  
+<% end %>
+</div>
+
+
+<div class="nav">
+<%= form_with(url: home_index_path, method: "get", local: true) do |f| %>
+
+<div class="clean-index">
+<%= image_tag 'white_shirt.png', class: 'white_shirt' %>
+
+<div class="ratings">
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+    <span class="fa fa-star-o" id="star"></span>
+  </div>
+  <%= f.hidden_field :clean_index, id: "rating-value" %>
+
+  <%= image_tag 'suit.png', class: 'suit' %>
+</div>
+
+<div class="heat-index">
+  <i class="fa-solid fa-minus"></i>
+
+  <div class="heatings">
+    <span class="fa fa-circle-o" id="heat1"></span>
+    <span class="fa fa-circle-o" id="heat2"></span>
+    <span class="fa fa-circle-o" id="heat3"></span>
+    <span class="fa fa-circle-o" id="heat4"></span>
+    <span class="fa fa-circle-o" id="heat5"></span>
+    <span class="fa fa-circle-o" id="heat6"></span>
+    <span class="fa fa-circle-o" id="heat7"></span>
+    <span class="fa fa-circle-o" id="heat8"></span>
+    <span class="fa fa-circle-o" id="heat9"></span>
+  </div>
+  <%= f.hidden_field :heat_index, id: "heat-value" %>
+
+   <i class="fa-solid fa-plus"></i>
+</div>
+  
+
+  <div class="color-select">
+      <label for="color-select-checkbox">
+        <input type="checkbox" id="color-select-checkbox" name="color_select" <%= params[:color_select] == 'on' ? 'checked' : '' %>>
+        差し色モード
+      </label>
+    </div>
+
+
+  <div class="button">
+    <%= f.submit "コーデを組む" %>
+  </div>
+
+ <%=@high_difference_count%>
+<% end %>
+  
+</div>
+
+</div>
+
+<%= javascript_include_tag "items.js" %>
+
+
+
+
+
+
+
+

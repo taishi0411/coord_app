@@ -21,6 +21,8 @@ class ItemsController < ApplicationController
 
   def show
   @item = Item.find(params[:id])
+  genre = Genre.find(@item.genre_id)
+  @genre_name = genre.name
   end
 
   def new

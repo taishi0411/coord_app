@@ -1,12 +1,58 @@
-show
+<div class="title">
+  <p>
+  アイテム詳細
+  </p>
+</div>
 
-<%= @item.name %>
-<%= @item.genre_id %>
-<%= @item.rgb %>
-<%= @item.color_difference %>
 
-<% if @item.image.attached? %>
-    <%= image_tag @item.image %>
-<% end %>
+<div class="container">
+<div class="image">
+  <div id="image-preview">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image %>
+        <% end %>
+    </div>
+</div>
 
-<%= link_to "編集", edit_item_path(@item) %>
+
+<div class="form">
+  <div class="new-name form-title">
+    <div class="name">
+      <div class="block"></div> 
+      <p>アイテム名</p>
+    </div>
+    <input type="name" placeholder="<%= @item.name %>">
+    
+  </div>
+
+  <div class="new-genre form-title">
+    <div class="name">
+      <div class="block"></div>
+      <p>ジャンル</p>
+    </div>
+    <input type="name" placeholder="<%= @genre_name %>">
+    </div>
+
+
+    <div class="clean form-title">
+        <div class="name">
+            <div class="block"></div>
+            <p>綺麗め度</p>
+        </div>
+        <input type="name" placeholder="<%= @item.clean_index %>">
+    </div>
+
+    <div class="heat form-title">
+        <div class="name">
+            <div class="block"></div>
+            <p>暑さ度</p>
+        </div>
+        <input type="name" placeholder="<%= @item.heat_index %>">
+    </div>
+    
+
+
+  <div class="new-form-button">
+      <%= link_to "編集する", edit_item_path(@item) %>
+  </div>
+</div>

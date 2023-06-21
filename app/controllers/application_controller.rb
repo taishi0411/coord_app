@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource) 
-    users_index_path
+    home_index_path
   end
 
   def get_weather(city_name, api_key)
