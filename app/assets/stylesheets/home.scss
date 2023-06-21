@@ -286,7 +286,8 @@ hmtl{
  }
  
  
- #items-index{  
+ #items-index{
+  min-height: 100vh;
    .container{
      .title{
        text-align: center;
@@ -300,6 +301,7 @@ hmtl{
        overflow-wrap: normal;
     
        .nav{
+        
          position: fixed;
          left: 60px;
          top: 150px;
@@ -537,7 +539,7 @@ hmtl{
      
      img{
          width: 100%;
-         height: 766px;
+         height: 750px;
      }
  
    }
@@ -732,7 +734,7 @@ hmtl{
      
      img{
          width: 100%;
-         height: 766px;
+         height: 750px;
      }
  
    }
