@@ -68,7 +68,8 @@ rgbの最小値と最大値の差が小さいほどモノトーン(黒or白)に�
 
 綺麗め度高めで暑さ度を高めにした時のコーデです。  
 
-<img width="1906" alt="clean9_heat9" src="https://github.com/taishi0411/coord_app/assets/106446066/428a4a41-e499-4446-9847-dc3c3ee4cbdf">  
+<img width="1906" alt="clean9_heat9" src="https://github.com/taishi0411/coord_app/assets/106446066/428a4a41-e499-4446-9847-dc3c3ee4cbdf">
+
   
   
 ### 差し色モード
@@ -82,7 +83,7 @@ rgbの最小値と最大値の差が小さいほどモノトーン(黒or白)に�
 
     
 ### クローゼット
-アイテムを全表示又はジャンル別で表示します。
+アイテムをジャンル別で表示します。
 
 <img width="1906" alt="item_index" src="https://github.com/taishi0411/coord_app/assets/106446066/eba72f69-12b7-4aa3-870c-344ee7e50306">
 
