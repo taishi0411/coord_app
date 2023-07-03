@@ -63,13 +63,13 @@ rgbの最小値と最大値の差が小さいほどモノトーン(黒or白)に�
 ### コーデ機能
 選択した綺麗め度にコーデ全体の平均綺麗め度が近づくように、選択した暑さ度にトップス,アウター,パンツの暑さ度の平均が近付くようにアイテムを取り出します。帽子、メガネ、靴、バッグはランダムで取出します。同じ値を入力してコーデを組むと、先ほどとは違うコーデを提案するようにしています。気温が16以下or暑さ度を６以上にするとコーデにアウターが反映されるようになっています。 
 
-<img width="1906" alt="clean1_heat1" src="https://github.com/taishi0411/coord_app/assets/106446066/3fb1cb9a-8a84-4dc5-a3db-8f7d6a4b08a1">  
-
+<img width="1906" alt="clean1_heat1" src="https://github.com/taishi0411/coord_app/assets/106446066/b699ccf8-aba3-4d9d-9f52-a9d856498ed4">
 
 
 綺麗め度高めで暑さ度を高めにした時のコーデです。  
 
-<img width="1906" alt="clean9_heat9" src="https://github.com/taishi0411/coord_app/assets/106446066/428a4a41-e499-4446-9847-dc3c3ee4cbdf">
+<img width="1906" alt="clean9_heat9" src="https://github.com/taishi0411/coord_app/assets/106446066/c8efdaa7-4742-4419-9531-351256986337">
+
 
   
   
