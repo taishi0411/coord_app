@@ -80,21 +80,24 @@ rgbの最小値と最大値の差が小さいほどモノトーン(黒or白)に�
 
 color_differeceの低いコーデの中に一つcolor_differeceの高いアイテムを取り出します。
 
-<img width="1906" alt="color_select" src="https://github.com/taishi0411/coord_app/assets/106446066/5d6de789-92d2-4623-90e9-51177fb08e41">  
+<img width="1906" alt="color_select" src="https://github.com/taishi0411/coord_app/assets/106446066/71cf2f9e-1c83-45c5-b710-d5f153fa54ef">
+
 
 
     
 ### クローゼット
 アイテムをジャンル別で表示します。
 
-<img width="1906" alt="item_index" src="https://github.com/taishi0411/coord_app/assets/106446066/eba72f69-12b7-4aa3-870c-344ee7e50306">
+<img width="1906" alt="item_index" src="https://github.com/taishi0411/coord_app/assets/106446066/f2ae1486-4a61-4804-af15-c7e2b0616d7e">
+
 
 
 
 ### 天気表示
 新規登録で登録した都道府県の天気および気温をOpen wether APIで取得して表示します。気温が16以下になるとアウターがコーデに組まれます。  
 
-<img width="373" alt="weather" src="https://github.com/taishi0411/coord_app/assets/106446066/9b98b591-2568-4fe0-ab10-9e0f6c254f2b">
+<img width="373" alt="weather" src="https://github.com/taishi0411/coord_app/assets/106446066/d842dcf0-8cf2-44fe-96a0-4b2a2d456cf5">
+
 
 
 
