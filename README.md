@@ -47,7 +47,8 @@
 # 3.インフラ構成図,デプロイの流れ
 
 # 4.ER図
-<img width="732" alt="ER" src="https://github.com/taishi0411/coord_app/assets/106446066/e5c31302-d451-4625-9766-965b438db1d6">  
+<img width="732" alt="ER" src="https://github.com/taishi0411/coord_app/assets/106446066/bf494341-6528-41fa-8d6d-7a1fdf7c89fb">
+
 
 
 itemテーブルのclor_differenceカラムは、画像の占める割合が一番大きい色のrgb(red,green,blue)の最大と最小値の差を保持します。アイテム登録時にCloud Vision APIにて画像の占める割合が一番大きい色をjson形式でrgb(red,green,blue)として取得します。  
