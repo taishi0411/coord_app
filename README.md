@@ -45,7 +45,7 @@
 
 
 # 3.インフラ構成図,デプロイの流れ
-現在、デプロイ未了のためアプリにアクセスできません。今しばらくお持ちください。
+![aws drawio (1)](https://github.com/taishi0411/coord_app/assets/106446066/c92c2f86-89c3-4175-91b9-11bdeb34fffd)
 
 # 4.ER図
 <img width="732" alt="ER" src="https://github.com/taishi0411/coord_app/assets/106446066/bf494341-6528-41fa-8d6d-7a1fdf7c89fb">
