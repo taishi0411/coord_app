@@ -47,7 +47,7 @@
 # 3.インフラ構成図,デプロイの流れ
 デプロイにはdockerとAWSのEC2を使いました。
 
-![aws drawio (1)](https://github.com/taishi0411/coord_app/assets/106446066/c92c2f86-89c3-4175-91b9-11bdeb34fffd)
+<img width="1111" alt="aws" src="https://github.com/taishi0411/coord_app/assets/106446066/d2e5bdfd-5daf-4390-ac5c-b7fbd51c9615">
 
 
 ローカルのdockerで開発したコードをgithubにpushします。AWSのEC2のインスタンスにdockerをダウンロードし、gitgubからpullします。80番ポートでブラウザからアクセスします。
